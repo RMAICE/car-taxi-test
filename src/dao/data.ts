@@ -15,6 +15,9 @@ class DataDao extends BaseDao {
         return this.knex('data').select('*');
     }
 
+    /**
+     * returns only inserted ids
+     */
     public async insertIgnoringConflicts(
         rows: Data[],
         transaction?: Knex.Transaction
@@ -33,6 +36,9 @@ class DataDao extends BaseDao {
         return uniqIds;
     }
 
+    /**
+     * returns inserted and updated ids
+     */
     public async insertMergingConflicts(
         rows: Data[],
         transaction?: Knex.Transaction
