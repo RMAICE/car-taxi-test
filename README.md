@@ -13,6 +13,8 @@ To start service locally
 3. run `docker-compose up` to start
 4. service should be working on `localhost:8080`
 
+`node_modules` folder will be empty and can create issues with suggestion in IDE. So run `npm i` locally
+
 # Routes
 
 - `/api/sync`
