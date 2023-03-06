@@ -1,13 +1,16 @@
-# Requirements
+# CarTaxi test
+
+## Requirements
 
 tested on MacOS only
 
 * [docker]
 * [docker-compose]
 
-# Development
+## Development
 
 To start service locally
+
 1. copy `.env_example` and name it `.env`
 2. fill the required variables and it is ready to start
 3. run `docker-compose up` to start
@@ -15,9 +18,9 @@ To start service locally
 
 `node_modules` folder will be empty and can create issues with suggestion in IDE. So run `npm i` locally
 
-# Routes
+## Routes
 
-- `/api/sync`
+* `/api/sync`
 
 1. on each request runs seeds to reset database
 2. logs expected data to be added/deleted/updated
