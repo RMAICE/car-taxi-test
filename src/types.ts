@@ -1,5 +1,3 @@
-import { Knex } from 'knex';
-
 export interface Data {
     id: string;
     name: string;
