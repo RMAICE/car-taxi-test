@@ -1,0 +1,6 @@
+{
+    "execMap": {
+        "ts": "node --inspect=0.0.0.0:9229 --require ts-node/register"
+    },
+    "watch": "./src/"
+}
