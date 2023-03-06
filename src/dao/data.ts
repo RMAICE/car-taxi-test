@@ -11,11 +11,15 @@ class DataDao extends BaseDao {
         this.knex = knex;
     }
 
+    public getAll(): Promise<Data[]> {
+        return this.knex('data').select('*');
+    }
+
     public async insertIgnoringConflicts(
         rows: Data[],
         transaction?: Knex.Transaction
     ) {
-        const query = knex('data');
+        const query = this.knex('data');
 
         if (transaction) query.transacting(transaction);
 
@@ -33,7 +37,7 @@ class DataDao extends BaseDao {
         rows: Data[],
         transaction?: Knex.Transaction
     ) {
-        const query = knex('data');
+        const query = this.knex('data');
 
         if (transaction) query.transacting(transaction);
 
@@ -48,7 +52,7 @@ class DataDao extends BaseDao {
         rows: Pick<Data, 'id'>[],
         transaction?: Knex.Transaction
     ) {
-        const query = knex('data');
+        const query = this.knex('data');
 
         if (transaction) query.transacting(transaction);
 

@@ -1,6 +1,7 @@
 import { getObjects } from '../api/objects';
 import DataDao from '../dao/data';
 import knexConfig from '../../knexfile';
+import { toStringData } from '../utils/format';
 
 class SyncService {
     private data;
@@ -31,6 +32,10 @@ class SyncService {
 
             await this.data.insertMergingConflicts(toUpdate, transaction);
             await transaction.commit();
+
+            const data = await this.data.getAll();
+            console.log('---- AFTER');
+            console.log(data.map(toStringData));
 
             return {
                 added: inserted.size,
