@@ -1,5 +1,6 @@
 import { getObjects } from '../api/objects';
 import DataDao from '../dao/data';
+import knexConfig from '../../knexfile';
 
 class SyncService {
     private data;
@@ -13,6 +14,7 @@ class SyncService {
         deleted: number;
         updated: number;
     }> {
+        await this.resetDb();
         const incoming = await getObjects();
         const transaction = await this.data.getTransaction();
 
@@ -39,6 +41,12 @@ class SyncService {
             await transaction.rollback();
             throw error;
         }
+    }
+
+    private async resetDb() {
+        await this.data.knex.seed.run({
+            directory: knexConfig.seeds?.directory,
+        });
     }
 }
 

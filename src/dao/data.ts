@@ -4,6 +4,13 @@ import { Data } from '../types';
 import BaseDao from './base';
 
 class DataDao extends BaseDao {
+    public knex: Knex;
+
+    constructor() {
+        super();
+        this.knex = knex;
+    }
+
     public async insertIgnoringConflicts(
         rows: Data[],
         transaction?: Knex.Transaction

@@ -2,7 +2,6 @@
 import { faker } from '@faker-js/faker';
 import knex from '../db';
 import { Data } from '../types';
-import knexConfig from '../../knexfile';
 
 function getRandomNumber(min: number, max: number): number {
     min = Math.ceil(min);
@@ -15,7 +14,6 @@ function getRandomName() {
 }
 
 export async function getObjects(): Promise<Data[]> {
-    await knex.seed.run({ directory: knexConfig.seeds?.directory });
     const data = await knex('data')
         .select('*')
         .then(d => d);
