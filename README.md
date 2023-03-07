@@ -2,7 +2,7 @@
 
 ## Requirements
 
-tested on MacOS only
+tested on MacOS and Windows
 
 * [docker]
 * [docker-compose]
@@ -16,7 +16,7 @@ To start service locally
 3. run `docker-compose up` to start
 4. service should be working on `localhost:8080`
 
-`node_modules` folder will be empty and can create issues with suggestion in IDE. So run `npm i` locally
+`node_modules` folder could be empty and can create issues with suggestion in IDE. So run `npm i` locally
 
 ## Routes
 
